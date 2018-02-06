@@ -54,6 +54,23 @@ var stream2 = T.stream('statuses/filter', {follow: duckboi});
   });
 
 
+  stream.on('follow',followed)
+  function followed(eventMsg){
+    console.log("the follow bot is starting")
+    var screenName = eventMsg.source.screen_name;
+    tweetIt({status: "sup @" + screenName + " thanks for the follow I all the support I can get to make sure @realdonaldtrump keeps getting his daily intake of dicks" });
+  }
+  function tweetIt(params){
+        T.post('statuses/update', params, tweeted);
+        function tweeted(err, data, response){
+          if(err){
+            console.log("there was an error", err);
+          }
+          else{
+            console.log("it worked!!!")
+          }x
+      }
+  }
 
 
 
