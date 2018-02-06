@@ -54,7 +54,9 @@ var stream2 = T.stream('statuses/filter', {follow: duckboi});
   });
 
 
-  stream.on('follow',followed)
+//follow reply
+const stream4 = T.stream('user')
+  stream4.on('follow',followed)
   function followed(eventMsg){
     console.log("the follow bot is starting")
     var screenName = eventMsg.source.screen_name;
@@ -71,27 +73,3 @@ var stream2 = T.stream('statuses/filter', {follow: duckboi});
           }x
       }
   }
-
-
-
-
-
- // function gets users tweets and will store them as an array of objects
-
- // T.get('statuses/user_timeline', {screen_name: 'spencepeacock1', language: 'en', include_rts: false, exclude_replies: true, count: 2 } , gotData);
- //  function gotData(err, data, response) {
- //    for(var i = 0; i < data.length; i++){
- //
- //      var statusObj = {status: "@" + data[i].user.screen_name + " @willfisher4cong is running to replace michael burgess join us!",
- //                 in_reply_to_status_id: data[i].id_str
- //       }
- //       if(data[i].created_at < 10)
- //       console.log("tweet" + (i+1));
- //       console.log("Text:  " + data[i].text);
- //       console.log("User:   " + data[i].user.name);
- //       console.log("Time:" + data[i].created_at);
- //       console.log("tweet id: " + data[i].id);
- //       var date = new Date();
- //       var day = date.getDay();
- //   }
- // }
